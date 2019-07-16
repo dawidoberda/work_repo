@@ -17,6 +17,8 @@ def main():
     if indicators[1] == True:
         csv_parser_mpn.create_second_temp()
 
+    csv_parser_mpn.compare_csv()
+
 
 if __name__=='__main__':
     main()

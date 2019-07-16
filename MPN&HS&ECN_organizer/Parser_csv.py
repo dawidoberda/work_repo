@@ -41,9 +41,9 @@ class ParserCsv:
                 csv_write_one = csv.writer(w, delimiter=',')
 
                 for line in csv_one:
-                    actual_line_qty_first = actual_line_qty_first+1
-                    if (line[0] == 'ENG:ESD data' and line[10] == 'Axis'):
+                    if line[0] == 'ENG:ESD data' and line[10] == 'Axis':
                         csv_write_one.writerow(line)
+                        self.actual_line_qty_first = self.actual_line_qty_first + 1
 
     def create_second_temp(self):
         with open(self.second_file_name, 'r') as f2:
@@ -57,10 +57,11 @@ class ParserCsv:
                 for line in csv_two:
                     if (line[0] == 'ENG:ESD data' and line[10] == 'Axis'):
                         csv_write_two.writerow(line)
+                        self.actual_line_qty_second = self.actual_line_qty_second + 1
 
     def compare_csv(self):
-        pass
-        #print(actual_line_qty_first)
-            #TODO: sprawdzic dlaeczego nie dziala zmienna klasowa.
+        print(self.actual_line_qty_first)
+        print(self.actual_line_qty_second)
+            #TODO:
         # Nastepnie sprawdzic ile lini ma plik 1 i 2 pamietac ze potrzebny jest jakis csv ktory bedzie zbieral dane z
         # kolejnych dni i je zapamietywal (sztucznie go stworzyc) i porowniaine 2 sasiadujacych dni ma byc zapisywane do tego pliku
