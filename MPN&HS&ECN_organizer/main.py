@@ -1,5 +1,6 @@
 #ENG:ESD data
 from Parser_csv import ParserCsv
+import datebase_manager
 
 def main():
     first_file = 'MPN_previous (copy).csv'
@@ -19,6 +20,8 @@ def main():
 
     csv_parser_mpn.compare_csv()
 
+    datebase_manager.create_mpn_table()
+    datebase_manager.fill_mpn_tabel()
 
 if __name__=='__main__':
     main()
